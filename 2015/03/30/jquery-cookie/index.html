@@ -90,16 +90,17 @@
 
 
 
+<meta name="description" content="1.添加一个”会话cookie”1$.cookie(&apos;the_cookie&apos;, &apos;the_value&apos;); 2.创建一个cookie并设置有效时间为 7天1$.cookie(&apos;the_cookie&apos;, &apos;the_value&apos;, &amp;#123; expires: 7 &amp;#125;); 3.创建一个cookie并设置 cookie的有效路径1$.cookie(&apos;the_cookie&apos;, &apos;the_val">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="志明与春娇">
-<meta property="og:url" content="http://yoursite.com/2016/08/29/志明与春娇/index.html">
+<meta property="og:title" content="jquery.cookie.js 使用方法">
+<meta property="og:url" content="http://yoursite.com/2015/03/30/jquery-cookie/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:image" content="http://oc1scpcdy.bkt.clouddn.com/p2112525956.jpg">
-<meta property="og:updated_time" content="2016-08-29T06:19:57.000Z">
+<meta property="og:description" content="1.添加一个”会话cookie”1$.cookie(&apos;the_cookie&apos;, &apos;the_value&apos;); 2.创建一个cookie并设置有效时间为 7天1$.cookie(&apos;the_cookie&apos;, &apos;the_value&apos;, &amp;#123; expires: 7 &amp;#125;); 3.创建一个cookie并设置 cookie的有效路径1$.cookie(&apos;the_cookie&apos;, &apos;the_val">
+<meta property="og:updated_time" content="2016-06-27T06:10:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="志明与春娇">
-<meta name="twitter:image" content="http://oc1scpcdy.bkt.clouddn.com/p2112525956.jpg">
+<meta name="twitter:title" content="jquery.cookie.js 使用方法">
+<meta name="twitter:description" content="1.添加一个”会话cookie”1$.cookie(&apos;the_cookie&apos;, &apos;the_value&apos;); 2.创建一个cookie并设置有效时间为 7天1$.cookie(&apos;the_cookie&apos;, &apos;the_value&apos;, &amp;#123; expires: 7 &amp;#125;); 3.创建一个cookie并设置 cookie的有效路径1$.cookie(&apos;the_cookie&apos;, &apos;the_val">
 
 
 
@@ -127,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/29/志明与春娇/"/>
+  <link rel="canonical" href="http://yoursite.com/2015/03/30/jquery-cookie/"/>
 
 
 
 
 
-  <title> 志明与春娇 | Hexo </title>
+  <title> jquery.cookie.js 使用方法 | Hexo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -252,7 +253,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/29/志明与春娇/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/03/30/jquery-cookie/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -273,7 +274,7 @@
             
             
               
-                志明与春娇
+                jquery.cookie.js 使用方法
               
             
           </h1>
@@ -288,8 +289,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-29T11:13:22+08:00">
-                2016-08-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-03-30T00:00:00+08:00">
+                2015-03-30
               </time>
             
 
@@ -323,7 +324,12 @@
       
 
       
-        <p><img src="http://oc1scpcdy.bkt.clouddn.com/p2112525956.jpg" alt="dianyinggaibao"></p>
+        <h3 id="1-添加一个”会话cookie”"><a href="#1-添加一个”会话cookie”" class="headerlink" title="1.添加一个”会话cookie”"></a>1.添加一个”会话cookie”</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$.cookie(<span class="string">'the_cookie'</span>, <span class="string">'the_value'</span>);</div></pre></td></tr></table></figure>
+<h3 id="2-创建一个cookie并设置有效时间为-7天"><a href="#2-创建一个cookie并设置有效时间为-7天" class="headerlink" title="2.创建一个cookie并设置有效时间为 7天"></a>2.创建一个cookie并设置有效时间为 7天</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$.cookie(<span class="string">'the_cookie'</span>, <span class="string">'the_value'</span>, &#123; <span class="attr">expires</span>: <span class="number">7</span> &#125;);</div></pre></td></tr></table></figure>
+<h3 id="3-创建一个cookie并设置-cookie的有效路径"><a href="#3-创建一个cookie并设置-cookie的有效路径" class="headerlink" title="3.创建一个cookie并设置 cookie的有效路径"></a>3.创建一个cookie并设置 cookie的有效路径</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$.cookie(<span class="string">'the_cookie'</span>, <span class="string">'the_value'</span>, &#123; <span class="attr">expires</span>: <span class="number">7</span>, <span class="attr">path</span>: <span class="string">'/'</span> &#125;);</div></pre></td></tr></table></figure>
+<h3 id="4-读取cookie"><a href="#4-读取cookie" class="headerlink" title="4.读取cookie"></a>4.读取cookie</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$.cookie(<span class="string">'the_cookie'</span>);</div></pre></td></tr></table></figure>
+<h3 id="5-删除cookie"><a href="#5-删除cookie" class="headerlink" title="5.删除cookie"></a>5.删除cookie</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$.cookie(<span class="string">'the_cookie'</span>, <span class="literal">null</span>);   <span class="comment">//通过传递null作为cookie的值即可</span></div></pre></td></tr></table></figure>
+<h3 id="6-可选参数"><a href="#6-可选参数" class="headerlink" title="6.可选参数"></a>6.可选参数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$.cookie(<span class="string">'the_cookie'</span>,<span class="string">'the_value'</span>,&#123;</div><div class="line">    <span class="attr">expires</span>:<span class="number">7</span>,  </div><div class="line">    <span class="attr">path</span>:<span class="string">'/'</span>,</div><div class="line">    <span class="attr">domain</span>:<span class="string">'jquery.com'</span>,</div><div class="line">    <span class="attr">secure</span>:<span class="literal">true</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -360,8 +366,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/11/learntoDjango1/" rel="next" title="Django学习路线">
-                <i class="fa fa-chevron-left"></i> Django学习路线
+              <a href="/2016/07/29/somefrontStorage/" rel="next" title="几种前端储存">
+                <i class="fa fa-chevron-left"></i> 几种前端储存
               </a>
             
           </div>
@@ -370,8 +376,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/08/11/Js-Date/" rel="prev" title="Js获取当前日期时间">
-                Js获取当前日期时间 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/03/27/Use-js-to-get-the-file-extension/" rel="prev" title="利用js取得文件扩展名">
+                利用js取得文件扩展名 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -419,8 +425,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -473,6 +488,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-添加一个”会话cookie”"><span class="nav-number">1.</span> <span class="nav-text">1.添加一个”会话cookie”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-创建一个cookie并设置有效时间为-7天"><span class="nav-number">2.</span> <span class="nav-text">2.创建一个cookie并设置有效时间为 7天</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-创建一个cookie并设置-cookie的有效路径"><span class="nav-number">3.</span> <span class="nav-text">3.创建一个cookie并设置 cookie的有效路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-读取cookie"><span class="nav-number">4.</span> <span class="nav-text">4.读取cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-删除cookie"><span class="nav-number">5.</span> <span class="nav-text">5.删除cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-可选参数"><span class="nav-number">6.</span> <span class="nav-text">6.可选参数</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

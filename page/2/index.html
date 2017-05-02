@@ -250,7 +250,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/07/29/几种前端储存/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/07/29/somefrontStorage/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -272,7 +272,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/07/29/几种前端储存/" itemprop="url">
+                <a class="post-title-link" href="/2016/07/29/somefrontStorage/" itemprop="url">
                   几种前端储存
                 </a>
               
@@ -382,7 +382,7 @@ localStorage.getItem(&#39;test&#39;);</code><br>localStorage可以存储k-v形�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/03/30/use-jquery-cookie/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/03/30/jquery-cookie/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -404,7 +404,7 @@ localStorage.getItem(&#39;test&#39;);</code><br>localStorage可以存储k-v形�
             
               
                 
-                <a class="post-title-link" href="/2015/03/30/use-jquery-cookie/" itemprop="url">
+                <a class="post-title-link" href="/2015/03/30/jquery-cookie/" itemprop="url">
                   jquery.cookie.js 使用方法
                 </a>
               
@@ -583,7 +583,7 @@ localStorage.getItem(&#39;test&#39;);</code><br>localStorage可以存储k-v形�
       
         
           
-            <h1 id="怎样取得文件扩展名"><a href="#怎样取得文件扩展名" class="headerlink" title="怎样取得文件扩展名"></a>怎样取得文件扩展名</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> file1 = <span class="string">"50.xsl"</span>;</div><div class="line"><span class="keyword">var</span> file2 = <span class="string">"30.doc"</span>;</div><div class="line">getFileExtension(file1); <span class="comment">//returs xsl</span></div><div class="line">getFileExtension(file2); <span class="comment">//returs doc</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFileExtension</span>(<span class="params">filename</span>) </span>&#123;</div><div class="line">  <span class="comment">/*TODO*/</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> file1 = <span class="string">"50.xsl"</span>;</div><div class="line"><span class="keyword">var</span> file2 = <span class="string">"30.doc"</span>;</div><div class="line">getFileExtension(file1); <span class="comment">//returs xsl</span></div><div class="line">getFileExtension(file2); <span class="comment">//returs doc</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFileExtension</span>(<span class="params">filename</span>) </span>&#123;</div><div class="line">  <span class="comment">/*TODO*/</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="解决方法1：正则表达式"><a href="#解决方法1：正则表达式" class="headerlink" title="解决方法1：正则表达式"></a>解决方法1：正则表达式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFileExtension1</span>(<span class="params">filename</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> (<span class="regexp">/[.]/</span>.exec(filename)) ? <span class="regexp">/[^.]+$/</span>.exec(filename)[<span class="number">0</span>] : <span class="literal">undefined</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="解决方法-2-String的split方法"><a href="#解决方法-2-String的split方法" class="headerlink" title="解决方法 2: String的split方法"></a>解决方法 2: String的split方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFileExtension2</span>(<span class="params">filename</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> filename.split(<span class="string">'.'</span>).pop();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="解决方法-3-String的slice、lastIndexOf方法"><a href="#解决方法-3-String的slice、lastIndexOf方法" class="headerlink" title="解决方法 3: String的slice、lastIndexOf方法"></a>解决方法 3: String的slice、lastIndexOf方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFileExtension3</span>(<span class="params">filename</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> filename.slice((filename.lastIndexOf(<span class="string">"."</span>) - <span class="number">1</span> &gt;&gt;&gt; <span class="number">0</span>) + <span class="number">2</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(getFileExtension3(<span class="string">''</span>));                            <span class="comment">// ''</span></div><div class="line"><span class="built_in">console</span>.log(getFileExtension3(<span class="string">'filename'</span>));                    <span class="comment">// ''</span></div><div class="line"><span class="built_in">console</span>.log(getFileExtension3(<span class="string">'filename.txt'</span>));                <span class="comment">// 'txt'</span></div><div class="line"><span class="built_in">console</span>.log(getFileExtension3(<span class="string">'.hiddenfile'</span>));                 <span class="comment">// ''</span></div><div class="line"><span class="built_in">console</span>.log(getFileExtension3(<span class="string">'filename.with.many.dots.ext'</span>)); <span class="comment">// 'ext'</span></div></pre></td></tr></table></figure>
@@ -631,7 +631,7 @@ localStorage.getItem(&#39;test&#39;);</code><br>localStorage可以存储k-v形�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/03/25/十条jQuery代码片段/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/03/25/jQuerycodesnippet/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -653,7 +653,7 @@ localStorage.getItem(&#39;test&#39;);</code><br>localStorage可以存储k-v形�
             
               
                 
-                <a class="post-title-link" href="/2015/03/25/十条jQuery代码片段/" itemprop="url">
+                <a class="post-title-link" href="/2015/03/25/jQuerycodesnippet/" itemprop="url">
                   十条jQuery代码片段
                 </a>
               

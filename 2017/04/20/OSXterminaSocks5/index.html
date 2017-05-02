@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="OS X终端使用配置socks5 代理如果已经启用shadowsocks 本地代理为 socks5://127.0.0.1:1080,在终端下使用 export  ALL_PROXY=socks5://127.0.0.1:1080清除代理 unset ALL_PROXY为了方便呢，可以在.zshrc中加上这个 1234function setproxy() &amp;#123; # export &amp;#12">
+<meta name="description" content="如果已经启用shadowsocks 本地代理为 socks5://127.0.0.1:1080,在终端下使用 export  ALL_PROXY=socks5://127.0.0.1:1080清除代理 unset ALL_PROXY为了方便呢，可以在.zshrc中加上这个 1234function setproxy() &amp;#123; # export &amp;#123;HTTP,HTTPS,FTP&amp;#1">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OSXterminaSocks5">
+<meta property="og:title" content="OSX终端使用配置socks5 代理">
 <meta property="og:url" content="http://yoursite.com/2017/04/20/OSXterminaSocks5/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="OS X终端使用配置socks5 代理如果已经启用shadowsocks 本地代理为 socks5://127.0.0.1:1080,在终端下使用 export  ALL_PROXY=socks5://127.0.0.1:1080清除代理 unset ALL_PROXY为了方便呢，可以在.zshrc中加上这个 1234function setproxy() &amp;#123; # export &amp;#12">
-<meta property="og:updated_time" content="2017-04-20T05:35:37.000Z">
+<meta property="og:description" content="如果已经启用shadowsocks 本地代理为 socks5://127.0.0.1:1080,在终端下使用 export  ALL_PROXY=socks5://127.0.0.1:1080清除代理 unset ALL_PROXY为了方便呢，可以在.zshrc中加上这个 1234function setproxy() &amp;#123; # export &amp;#123;HTTP,HTTPS,FTP&amp;#1">
+<meta property="og:updated_time" content="2017-05-02T08:46:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OSXterminaSocks5">
-<meta name="twitter:description" content="OS X终端使用配置socks5 代理如果已经启用shadowsocks 本地代理为 socks5://127.0.0.1:1080,在终端下使用 export  ALL_PROXY=socks5://127.0.0.1:1080清除代理 unset ALL_PROXY为了方便呢，可以在.zshrc中加上这个 1234function setproxy() &amp;#123; # export &amp;#12">
+<meta name="twitter:title" content="OSX终端使用配置socks5 代理">
+<meta name="twitter:description" content="如果已经启用shadowsocks 本地代理为 socks5://127.0.0.1:1080,在终端下使用 export  ALL_PROXY=socks5://127.0.0.1:1080清除代理 unset ALL_PROXY为了方便呢，可以在.zshrc中加上这个 1234function setproxy() &amp;#123; # export &amp;#123;HTTP,HTTPS,FTP&amp;#1">
 
 
 
@@ -134,7 +134,7 @@
 
 
 
-  <title> OSXterminaSocks5 | Hexo </title>
+  <title> OSX终端使用配置socks5 代理 | Hexo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -274,7 +274,7 @@
             
             
               
-                OSXterminaSocks5
+                OSX终端使用配置socks5 代理
               
             
           </h1>
@@ -324,7 +324,7 @@
       
 
       
-        <h1 id="OS-X终端使用配置socks5-代理"><a href="#OS-X终端使用配置socks5-代理" class="headerlink" title="OS X终端使用配置socks5 代理"></a>OS X终端使用配置socks5 代理</h1><p>如果已经启用<code>shadowsocks</code> 本地代理为 <code>socks5://127.0.0.1:1080</code>,在终端下使用 <code>export  ALL_PROXY=socks5://127.0.0.1:1080</code>清除代理 <code>unset ALL_PROXY</code>为了方便呢，可以在<code>.zshrc</code>中加上这个</p>
+        <p>如果已经启用<code>shadowsocks</code> 本地代理为 <code>socks5://127.0.0.1:1080</code>,在终端下使用 <code>export  ALL_PROXY=socks5://127.0.0.1:1080</code>清除代理 <code>unset ALL_PROXY</code>为了方便呢，可以在<code>.zshrc</code>中加上这个</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function setproxy() &#123; </div><div class="line"># export &#123;HTTP,HTTPS,FTP&#125;_PROXY=”http://127.0.0.1:3128” 也可以设置http代理 </div><div class="line">export ALL_PROXY=socks5://127.0.0.1:1080 </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function unsetproxy() &#123; </div><div class="line"># unset &#123;HTTP,HTTPS,FTP&#125;_PROXY </div><div class="line">unset ALL_PROXY </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>需要使用代理的时候<code>setproxy</code>，不用了就 <code>unsetproxy</code> 就可以很方便的在shell环境下切换设置代理了。<br>为了测试是否成功可以<code>curl -i http://ip.cn</code> 查看ip。</p>
@@ -364,8 +364,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/02/usejson-serverandhttpie/" rel="next" title="usejson-serverandhttpie">
-                <i class="fa fa-chevron-left"></i> usejson-serverandhttpie
+              <a href="/2017/05/02/usejson-serverandhttpie/" rel="next" title="前端使用JsonServer伪造数据调试后台接口">
+                <i class="fa fa-chevron-left"></i> 前端使用JsonServer伪造数据调试后台接口
               </a>
             
           </div>
@@ -374,7 +374,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/20/learn-vue2-vueRouter-webpack2/" rel="prev" title="vue2+vueRouter+webpack2学习路线（一）">
+              <a href="/2017/03/20/vue2+vueRouter+webpack2/" rel="prev" title="vue2+vueRouter+webpack2学习路线（一）">
                 vue2+vueRouter+webpack2学习路线（一） <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -423,17 +423,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -486,22 +477,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OS-X终端使用配置socks5-代理"><span class="nav-number">1.</span> <span class="nav-text">OS X终端使用配置socks5 代理</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
