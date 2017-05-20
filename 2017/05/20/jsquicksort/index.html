@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="12345678var file1 = &quot;50.xsl&quot;;var file2 = &quot;30.doc&quot;;getFileExtension(file1); //returs xslgetFileExtension(file2); //returs docfunction getFileExtension(filename) &amp;#123;  /*TODO*/&amp;#125; 解决方法1：正则表达式123fun">
+<meta name="description" content="1234567891011121314151617181920212223var quickSort = function(arr)&amp;#123;          if(arr.length&amp;lt;=1)&amp;#123;return arr;&amp;#125;     var pivotIndex = Math.floor(arr.length/2);     var pivot = arr.splice(">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用js取得文件扩展名">
-<meta property="og:url" content="http://messixing.win/2015/03/27/Use-js-to-get-the-file-extension/index.html">
+<meta property="og:title" content="js快速排序">
+<meta property="og:url" content="http://messixing.win/2017/05/20/jsquicksort/index.html">
 <meta property="og:site_name" content="messixing">
-<meta property="og:description" content="12345678var file1 = &quot;50.xsl&quot;;var file2 = &quot;30.doc&quot;;getFileExtension(file1); //returs xslgetFileExtension(file2); //returs docfunction getFileExtension(filename) &amp;#123;  /*TODO*/&amp;#125; 解决方法1：正则表达式123fun">
-<meta property="og:updated_time" content="2017-05-02T08:45:04.000Z">
+<meta property="og:description" content="1234567891011121314151617181920212223var quickSort = function(arr)&amp;#123;          if(arr.length&amp;lt;=1)&amp;#123;return arr;&amp;#125;     var pivotIndex = Math.floor(arr.length/2);     var pivot = arr.splice(">
+<meta property="og:updated_time" content="2017-05-20T07:28:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用js取得文件扩展名">
-<meta name="twitter:description" content="12345678var file1 = &quot;50.xsl&quot;;var file2 = &quot;30.doc&quot;;getFileExtension(file1); //returs xslgetFileExtension(file2); //returs docfunction getFileExtension(filename) &amp;#123;  /*TODO*/&amp;#125; 解决方法1：正则表达式123fun">
+<meta name="twitter:title" content="js快速排序">
+<meta name="twitter:description" content="1234567891011121314151617181920212223var quickSort = function(arr)&amp;#123;          if(arr.length&amp;lt;=1)&amp;#123;return arr;&amp;#125;     var pivotIndex = Math.floor(arr.length/2);     var pivot = arr.splice(">
 
 
 
@@ -132,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://messixing.win/2015/03/27/Use-js-to-get-the-file-extension/"/>
+  <link rel="canonical" href="http://messixing.win/2017/05/20/jsquicksort/"/>
 
 
 
 
 
-  <title> 利用js取得文件扩展名 | messixing </title>
+  <title> js快速排序 | messixing </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -257,7 +257,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://messixing.win/2015/03/27/Use-js-to-get-the-file-extension/">
+    <link itemprop="mainEntityOfPage" href="http://messixing.win/2017/05/20/jsquicksort/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="messixing">
@@ -278,7 +278,7 @@
             
             
               
-                利用js取得文件扩展名
+                js快速排序
               
             
           </h1>
@@ -293,8 +293,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-03-27T00:00:00+08:00">
-                2015-03-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-20T15:26:04+08:00">
+                2017-05-20
               </time>
             
 
@@ -328,11 +328,7 @@
       
 
       
-        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> file1 = <span class="string">"50.xsl"</span>;</div><div class="line"><span class="keyword">var</span> file2 = <span class="string">"30.doc"</span>;</div><div class="line">getFileExtension(file1); <span class="comment">//returs xsl</span></div><div class="line">getFileExtension(file2); <span class="comment">//returs doc</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFileExtension</span>(<span class="params">filename</span>) </span>&#123;</div><div class="line">  <span class="comment">/*TODO*/</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="解决方法1：正则表达式"><a href="#解决方法1：正则表达式" class="headerlink" title="解决方法1：正则表达式"></a>解决方法1：正则表达式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFileExtension1</span>(<span class="params">filename</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> (<span class="regexp">/[.]/</span>.exec(filename)) ? <span class="regexp">/[^.]+$/</span>.exec(filename)[<span class="number">0</span>] : <span class="literal">undefined</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="解决方法-2-String的split方法"><a href="#解决方法-2-String的split方法" class="headerlink" title="解决方法 2: String的split方法"></a>解决方法 2: String的split方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFileExtension2</span>(<span class="params">filename</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> filename.split(<span class="string">'.'</span>).pop();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="解决方法-3-String的slice、lastIndexOf方法"><a href="#解决方法-3-String的slice、lastIndexOf方法" class="headerlink" title="解决方法 3: String的slice、lastIndexOf方法"></a>解决方法 3: String的slice、lastIndexOf方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFileExtension3</span>(<span class="params">filename</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> filename.slice((filename.lastIndexOf(<span class="string">"."</span>) - <span class="number">1</span> &gt;&gt;&gt; <span class="number">0</span>) + <span class="number">2</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(getFileExtension3(<span class="string">''</span>));                            <span class="comment">// ''</span></div><div class="line"><span class="built_in">console</span>.log(getFileExtension3(<span class="string">'filename'</span>));                    <span class="comment">// ''</span></div><div class="line"><span class="built_in">console</span>.log(getFileExtension3(<span class="string">'filename.txt'</span>));                <span class="comment">// 'txt'</span></div><div class="line"><span class="built_in">console</span>.log(getFileExtension3(<span class="string">'.hiddenfile'</span>));                 <span class="comment">// ''</span></div><div class="line"><span class="built_in">console</span>.log(getFileExtension3(<span class="string">'filename.with.many.dots.ext'</span>)); <span class="comment">// 'ext'</span></div></pre></td></tr></table></figure>
-<hr>
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> quickSort = <span class="function"><span class="keyword">function</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">     </div><div class="line">     <span class="keyword">if</span>(arr.length&lt;=<span class="number">1</span>)&#123;<span class="keyword">return</span> arr;&#125;</div><div class="line"></div><div class="line">     <span class="keyword">var</span> pivotIndex = <span class="built_in">Math</span>.floor(arr.length/<span class="number">2</span>);</div><div class="line">     <span class="keyword">var</span> pivot = arr.splice(pivotIndex,<span class="number">1</span>)[<span class="number">0</span>];</div><div class="line"></div><div class="line">     <span class="keyword">var</span> left = [];</div><div class="line">     <span class="keyword">var</span> right = [];</div><div class="line"></div><div class="line">     <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</div><div class="line">         <span class="keyword">if</span>(arr[i]&lt;pivot)&#123;</div><div class="line">             left.push(arr[i]);</div><div class="line">         &#125;<span class="keyword">else</span>&#123;</div><div class="line">             right.push(arr[i]);</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line">    <span class="keyword">return</span> quickSort(left).concat([pivot],quickSort(right))    ;</div><div class="line"> </div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> arr = [<span class="number">5</span>,<span class="number">100</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">-12</span>];</div><div class="line"><span class="built_in">document</span>.write(quickSort(arr));</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -369,18 +365,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/03/30/jquery-cookie/" rel="next" title="jquery.cookie.js 使用方法">
-                <i class="fa fa-chevron-left"></i> jquery.cookie.js 使用方法
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/03/25/jQuerycodesnippet/" rel="prev" title="十条jQuery代码片段">
-                十条jQuery代码片段 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/02/usejson-serverandhttpie/" rel="prev" title="前端使用JsonServer伪造数据调试后台接口">
+                前端使用JsonServer伪造数据调试后台接口 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -446,17 +438,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -509,22 +492,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方法1：正则表达式"><span class="nav-number">1.</span> <span class="nav-text">解决方法1：正则表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方法-2-String的split方法"><span class="nav-number">2.</span> <span class="nav-text">解决方法 2: String的split方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方法-3-String的slice、lastIndexOf方法"><span class="nav-number">3.</span> <span class="nav-text">解决方法 3: String的slice、lastIndexOf方法</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
