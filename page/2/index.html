@@ -254,6 +254,155 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://messixing.win/2016/08/05/javascript-technique/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="messixing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="messixing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/05/javascript-technique/" itemprop="url">
+                  javascript技巧
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-05T15:02:37+08:00">
+                2016-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="使用对象构造器"><a href="#使用对象构造器" class="headerlink" title="使用对象构造器"></a>使用对象构造器</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">firstName, lastName</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.firstName =  firstName;</div><div class="line">    <span class="keyword">this</span>.lastName = lastName;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> Saad = <span class="keyword">new</span> Person(<span class="string">"Saad"</span>, <span class="string">"Mousliki"</span>);</div></pre></td></tr></table></figure>
+<h2 id="小心使用typeof、instanceof和contructor"><a href="#小心使用typeof、instanceof和contructor" class="headerlink" title="小心使用typeof、instanceof和contructor"></a>小心使用<code>typeof</code>、<code>instanceof</code>和<code>contructor</code></h2><blockquote>
+<ul>
+<li><code>typeof</code>：JavaScript一元操作符，用于以字符串的形式返回变量的原始类型，注意，<code>typeof null</code>也会返回<code>object</code>，大多数的对象类型（数组Array、时间Date等）也会返回<code>object</code></li>
+<li><code>contructor</code>：内部原型属性，可以通过代码重写</li>
+<li><code>instanceof</code>：JavaScript操作符，会在原型链中的构造器中搜索，找到则返回<code>true</code>，否则返回<code>false</code></li>
+</ul>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>];</div><div class="line"><span class="keyword">typeof</span> arr;   <span class="comment">// 返回 "object" </span></div><div class="line">arr <span class="keyword">instanceof</span> <span class="built_in">Array</span> <span class="comment">// true</span></div><div class="line">arr.constructor();  <span class="comment">//[]</span></div></pre></td></tr></table></figure>
+<h2 id="使用自调用函数"><a href="#使用自调用函数" class="headerlink" title="使用自调用函数"></a>使用自调用函数</h2><p>函数在创建之后直接自动执行，通常称之为自调用匿名函数（Self-Invoked Anonymous Function）或直接调用函数表达式（Immediately Invoked Function Expression ）。格式如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// 置于此处的代码将自动执行</span></div><div class="line">&#125;)();  </div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> result = a+b;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;)(<span class="number">10</span>,<span class="number">20</span>)</div></pre></td></tr></table></figure></p>
+<h2 id="从数组中随机获取成员"><a href="#从数组中随机获取成员" class="headerlink" title="从数组中随机获取成员"></a>从数组中随机获取成员</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> items = [<span class="number">12</span>, <span class="number">548</span> , <span class="string">'a'</span> , <span class="number">2</span> , <span class="number">5478</span> , <span class="string">'foo'</span> , <span class="number">8852</span>, , <span class="string">'Doe'</span> , <span class="number">2145</span> , <span class="number">119</span>];</div><div class="line"><span class="keyword">var</span>  randomItem = items[<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * items.length)];</div></pre></td></tr></table></figure>
+<h2 id="获取指定范围内的随机数"><a href="#获取指定范围内的随机数" class="headerlink" title="获取指定范围内的随机数"></a>获取指定范围内的随机数</h2><p>这个功能在生成测试用的假数据时特别有数，比如介与指定范围内的工资数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * (max - min + <span class="number">1</span>)) + min;</div></pre></td></tr></table></figure></p>
+<h2 id="生成从0到指定值的数字数组"><a href="#生成从0到指定值的数字数组" class="headerlink" title="生成从0到指定值的数字数组"></a>生成从0到指定值的数字数组</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> numbersArray = [] , max = <span class="number">100</span>;</div><div class="line"><span class="keyword">for</span>( <span class="keyword">var</span> i=<span class="number">1</span>; numbersArray.push(i++) &lt; max;);  <span class="comment">// numbers = [1,2,3 ... 100]</span></div></pre></td></tr></table></figure>
+<h2 id="生成随机的字母数字字符串"><a href="#生成随机的字母数字字符串" class="headerlink" title="生成随机的字母数字字符串"></a>生成随机的字母数字字符串</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">generateRandomAlphaNum</span>(<span class="params">len</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> rdmString = <span class="string">""</span>;</div><div class="line">    <span class="keyword">for</span>( ; rdmString.length &lt; len; rdmString  += <span class="built_in">Math</span>.random().toString(<span class="number">36</span>).substr(<span class="number">2</span>));</div><div class="line">    <span class="keyword">return</span>  rdmString.substr(<span class="number">0</span>, len);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="打乱数字数组的顺序"><a href="#打乱数字数组的顺序" class="headerlink" title="打乱数字数组的顺序"></a>打乱数字数组的顺序</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> numbers = [<span class="number">5</span>, <span class="number">458</span> , <span class="number">120</span> , <span class="number">-215</span> , <span class="number">228</span> , <span class="number">400</span> , <span class="number">122205</span>, <span class="number">-85411</span>];</div><div class="line">numbers = numbers.sort(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="keyword">return</span> <span class="built_in">Math</span>.random() - <span class="number">0.5</span>&#125;);</div><div class="line"><span class="comment">/* numbers 数组将类似于 [120, 5, 228, -215, 400, 458, -85411, 122205]  */</span></div></pre></td></tr></table></figure>
+<h2 id="数组之间追加"><a href="#数组之间追加" class="headerlink" title="数组之间追加"></a>数组之间追加</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array1 = [<span class="number">12</span> , <span class="string">"foo"</span> , &#123;name <span class="string">"Joe"</span>&#125; , <span class="number">-2458</span>];</div><div class="line"><span class="keyword">var</span> array2 = [<span class="string">"Doe"</span> , <span class="number">555</span> , <span class="number">100</span>];</div><div class="line"><span class="built_in">Array</span>.prototype.push.apply(array1, array2);</div></pre></td></tr></table></figure>
+<h2 id="对象转换为数组"><a href="#对象转换为数组" class="headerlink" title="对象转换为数组"></a>对象转换为数组</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> argArray = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</div></pre></td></tr></table></figure>
+<h2 id="验证是否是数字"><a href="#验证是否是数字" class="headerlink" title="验证是否是数字"></a>验证是否是数字</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isNumber</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> !<span class="built_in">isNaN</span>(<span class="built_in">parseFloat</span>(n)) &amp;&amp; <span class="built_in">isFinite</span>(n);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="获取数组中的最大值和最小值"><a href="#获取数组中的最大值和最小值" class="headerlink" title="获取数组中的最大值和最小值"></a>获取数组中的最大值和最小值</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span>  numbers = [<span class="number">5</span>, <span class="number">458</span> , <span class="number">120</span> , <span class="number">-215</span> , <span class="number">228</span> , <span class="number">400</span> , <span class="number">122205</span>, <span class="number">-85411</span>]; </div><div class="line"><span class="keyword">var</span> maxInNumbers = <span class="built_in">Math</span>.max.apply(<span class="built_in">Math</span>, numbers); </div><div class="line"><span class="keyword">var</span> minInNumbers = <span class="built_in">Math</span>.min.apply(<span class="built_in">Math</span>, numbers);</div></pre></td></tr></table></figure>
+<h2 id="清空数组"><a href="#清空数组" class="headerlink" title="清空数组"></a>清空数组</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myArray = [<span class="number">12</span> , <span class="number">222</span> , <span class="number">1000</span> ];  </div><div class="line">myArray.length = <span class="number">0</span>;</div></pre></td></tr></table></figure>
+<h2 id="不要直接从数组中delete或remove元素"><a href="#不要直接从数组中delete或remove元素" class="headerlink" title="不要直接从数组中delete或remove元素"></a>不要直接从数组中<code>delete</code>或<code>remove</code>元素</h2><p>如果对数组元素直接使用<code>delete</code>，其实并没有删除，只是将元素置为了<code>undefined</code>。数组元素删除应使用<code>splice</code>。<br>切忌：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> items = [<span class="number">12</span>, <span class="number">548</span> ,<span class="string">'a'</span> , <span class="number">2</span> , <span class="number">5478</span> , <span class="string">'foo'</span> , <span class="number">8852</span>, , <span class="string">'Doe'</span> ,<span class="number">2154</span> , <span class="number">119</span> ]; </div><div class="line">items.length; <span class="comment">// return 11 </span></div><div class="line"><span class="keyword">delete</span> items[<span class="number">3</span>]; <span class="comment">// return true </span></div><div class="line">items.length; <span class="comment">// return 11 </span></div><div class="line"><span class="comment">/* items 结果为 [12, 548, "a", undefined × 1, 5478, "foo", 8852, undefined × 1, "Doe", 2154, 119] */</span></div></pre></td></tr></table></figure></p>
+<p>而应：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> items = [<span class="number">12</span>, <span class="number">548</span> ,<span class="string">'a'</span> , <span class="number">2</span> , <span class="number">5478</span> , <span class="string">'foo'</span> , <span class="number">8852</span>, , <span class="string">'Doe'</span> ,<span class="number">2154</span> , <span class="number">119</span> ]; </div><div class="line">items.length; <span class="comment">// return 11 </span></div><div class="line">items.splice(<span class="number">3</span>,<span class="number">1</span>) ; </div><div class="line">items.length; <span class="comment">// return 10</span></div></pre></td></tr></table></figure></p>
+<p>删除对象的属性时可以使用<code>delete</code>。</p>
+<h2 id="使用length属性截断数组"><a href="#使用length属性截断数组" class="headerlink" title="使用length属性截断数组"></a>使用<code>length</code>属性截断数组</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myArray = [<span class="number">12</span> , <span class="number">222</span> , <span class="number">1000</span> , <span class="number">124</span> , <span class="number">98</span> , <span class="number">10</span> ];  </div><div class="line">myArray.length = <span class="number">4</span>;</div></pre></td></tr></table></figure>
+<p>与此同时，如果把<code>length</code>属性变大，数组的长度值变会增加，会使用<code>undefined</code>来作为新的元素填充。<code>length</code>是一个可写的属性。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">myArray.length = <span class="number">10</span>; <span class="comment">// the new array length is 10 </span></div><div class="line">myArray[myArray.length - <span class="number">1</span>] ; <span class="comment">// undefined</span></div></pre></td></tr></table></figure></p>
+<h2 id="使用map-函数方法对数据循环"><a href="#使用map-函数方法对数据循环" class="headerlink" title="使用map()函数方法对数据循环"></a>使用map()函数方法对数据循环</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> squares = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>].map(<span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;  </div><div class="line">    <span class="keyword">return</span> val * val;  </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="保留指定小数位数"><a href="#保留指定小数位数" class="headerlink" title="保留指定小数位数"></a>保留指定小数位数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num =<span class="number">2.443242342</span>;</div><div class="line">num = num.toFixed(<span class="number">4</span>);</div></pre></td></tr></table></figure>
+<p>注意，<code>toFixec()</code>返回的是字符串，不是数字。</p>
+<h2 id="通过for-in循环检查对象的属性"><a href="#通过for-in循环检查对象的属性" class="headerlink" title="通过for-in循环检查对象的属性"></a>通过for-in循环检查对象的属性</h2><p>下面这样的用法，可以防止迭代的时候进入到对象的原型属性中。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> name <span class="keyword">in</span> object) &#123;  </div><div class="line">    <span class="keyword">if</span> (object.hasOwnProperty(name)) &#123; </div><div class="line">        <span class="comment">// do something with name</span></div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="临时存储用于计算和查询的变量"><a href="#临时存储用于计算和查询的变量" class="headerlink" title="临时存储用于计算和查询的变量"></a>临时存储用于计算和查询的变量</h2><p>在jQuery选择器中，可以临时存储整个DOM元素。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> navright = <span class="built_in">document</span>.querySelector(<span class="string">'#right'</span>); </div><div class="line"><span class="keyword">var</span> navleft = <span class="built_in">document</span>.querySelector(<span class="string">'#left'</span>); </div><div class="line"><span class="keyword">var</span> navup = <span class="built_in">document</span>.querySelector(<span class="string">'#up'</span>); </div><div class="line"><span class="keyword">var</span> navdown = <span class="built_in">document</span>.querySelector(<span class="string">'#down'</span>);</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://messixing.win/2016/07/29/CSS-centre horizontal/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1113,7 +1262,7 @@ localStorage.getItem(&#39;test&#39;);</code><br>localStorage可以存储k-v形�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
