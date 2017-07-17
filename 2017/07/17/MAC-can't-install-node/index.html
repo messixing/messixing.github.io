@@ -94,16 +94,16 @@
 
 
 
-<meta name="description" content="卸载 ```后通过 ``` brew ```安装，出现 ``` brew postinstall node ```提示。123456789101112按照提示安装完成后，发现  ``` node ```并没有安装成功， ``` whereis ```命令和 ``` which ```命令都返回 ``` node not found ```。解决办法：* brew update* sudo chow">
+<meta name="description" content="卸载 node 后通过 brew 安装，出现  brew postinstall node 提示。 按照提示安装完成后，发现  node 并没有安装成功， whereis命令和 which命令都返回 node not found。 解决办法：  brew update sudo chown -R $USER /usr/local brew install node brew doctor brew">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MAC无法安装node">
 <meta property="og:url" content="http://messixing.win/2017/07/17/MAC-can't-install-node/index.html">
 <meta property="og:site_name" content="messixing">
-<meta property="og:description" content="卸载 ```后通过 ``` brew ```安装，出现 ``` brew postinstall node ```提示。123456789101112按照提示安装完成后，发现  ``` node ```并没有安装成功， ``` whereis ```命令和 ``` which ```命令都返回 ``` node not found ```。解决办法：* brew update* sudo chow">
-<meta property="og:updated_time" content="2017-07-17T08:23:28.000Z">
+<meta property="og:description" content="卸载 node 后通过 brew 安装，出现  brew postinstall node 提示。 按照提示安装完成后，发现  node 并没有安装成功， whereis命令和 which命令都返回 node not found。 解决办法：  brew update sudo chown -R $USER /usr/local brew install node brew doctor brew">
+<meta property="og:updated_time" content="2017-07-17T08:26:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MAC无法安装node">
-<meta name="twitter:description" content="卸载 ```后通过 ``` brew ```安装，出现 ``` brew postinstall node ```提示。123456789101112按照提示安装完成后，发现  ``` node ```并没有安装成功， ``` whereis ```命令和 ``` which ```命令都返回 ``` node not found ```。解决办法：* brew update* sudo chow">
+<meta name="twitter:description" content="卸载 node 后通过 brew 安装，出现  brew postinstall node 提示。 按照提示安装完成后，发现  node 并没有安装成功， whereis命令和 which命令都返回 node not found。 解决办法：  brew update sudo chown -R $USER /usr/local brew install node brew doctor brew">
 
 
 
@@ -327,7 +327,17 @@
       
 
       
-        <p>卸载 <figure class="highlight plain"><figcaption><span>```后通过 ``` brew ```安装，出现 ``` brew postinstall node ```提示。</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">按照提示安装完成后，发现  ``` node ```并没有安装成功， ``` whereis ```命令和 ``` which ```命令都返回 ``` node not found ```。</div><div class="line"></div><div class="line">解决办法：</div><div class="line"></div><div class="line">* brew update</div><div class="line">* sudo chown -R $USER /usr/local</div><div class="line">* brew install node</div><div class="line">* brew doctor</div><div class="line">* brew link node</div><div class="line"></div><div class="line">解决完后 ``` node -v ``` or ``` npm -v</div></pre></td></tr></table></figure></p>
+        <p>卸载 <code>node</code> 后通过 <code>brew</code> 安装，出现  <code>brew postinstall node</code> 提示。</p>
+<p>按照提示安装完成后，发现  <code>node</code> 并没有安装成功， <code>whereis</code>命令和 <code>which</code>命令都返回 <code>node not found</code>。</p>
+<p>解决办法：</p>
+<ul>
+<li>brew update</li>
+<li>sudo chown -R $USER /usr/local</li>
+<li>brew install node</li>
+<li>brew doctor</li>
+<li>brew link node</li>
+</ul>
+<p>解决完后 <code>node -v</code> or <code>npm -v</code></p>
 
       
     </div>
