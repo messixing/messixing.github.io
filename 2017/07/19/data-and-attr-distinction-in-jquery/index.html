@@ -94,15 +94,16 @@
 
 
 
+<meta name="description" content="html12&amp;lt;h1 data-name=&quot;gua&quot;&amp;gt;你皮任你皮&amp;lt;/h1&amp;gt;&amp;lt;h2 data-name=&quot;pi&quot;&amp;gt;你是个瓜皮&amp;lt;/h2&amp;gt; js1234567891011121314console.log(&apos;======h1默认值======&apos;);console.log(&apos;data方法获取&apos;,$(&apos;h1&apos;).data(&apos;name&apos;));//guaconsol">
 <meta property="og:type" content="article">
-<meta property="og:title" content="志明与春娇">
-<meta property="og:url" content="http://messixing.win/2016/08/29/志明与春娇/index.html">
+<meta property="og:title" content="data()和attr()的区别">
+<meta property="og:url" content="http://messixing.win/2017/07/19/data-and-attr-distinction-in-jquery/index.html">
 <meta property="og:site_name" content="messixing">
-<meta property="og:image" content="http://oc1scpcdy.bkt.clouddn.com/p2112525956.jpg">
-<meta property="og:updated_time" content="2016-08-29T06:19:57.000Z">
+<meta property="og:description" content="html12&amp;lt;h1 data-name=&quot;gua&quot;&amp;gt;你皮任你皮&amp;lt;/h1&amp;gt;&amp;lt;h2 data-name=&quot;pi&quot;&amp;gt;你是个瓜皮&amp;lt;/h2&amp;gt; js1234567891011121314console.log(&apos;======h1默认值======&apos;);console.log(&apos;data方法获取&apos;,$(&apos;h1&apos;).data(&apos;name&apos;));//guaconsol">
+<meta property="og:updated_time" content="2017-07-19T05:45:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="志明与春娇">
-<meta name="twitter:image" content="http://oc1scpcdy.bkt.clouddn.com/p2112525956.jpg">
+<meta name="twitter:title" content="data()和attr()的区别">
+<meta name="twitter:description" content="html12&amp;lt;h1 data-name=&quot;gua&quot;&amp;gt;你皮任你皮&amp;lt;/h1&amp;gt;&amp;lt;h2 data-name=&quot;pi&quot;&amp;gt;你是个瓜皮&amp;lt;/h2&amp;gt; js1234567891011121314console.log(&apos;======h1默认值======&apos;);console.log(&apos;data方法获取&apos;,$(&apos;h1&apos;).data(&apos;name&apos;));//guaconsol">
 
 
 
@@ -130,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://messixing.win/2016/08/29/志明与春娇/"/>
+  <link rel="canonical" href="http://messixing.win/2017/07/19/data-and-attr-distinction-in-jquery/"/>
 
 
 
 
 
-  <title> 志明与春娇 | messixing </title>
+  <title> data()和attr()的区别 | messixing </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -255,7 +256,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://messixing.win/2016/08/29/志明与春娇/">
+    <link itemprop="mainEntityOfPage" href="http://messixing.win/2017/07/19/data-and-attr-distinction-in-jquery/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="messixing">
@@ -276,7 +277,7 @@
             
             
               
-                志明与春娇
+                data()和attr()的区别
               
             
           </h1>
@@ -291,8 +292,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-29T11:13:22+08:00">
-                2016-08-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-19T13:40:10+08:00">
+                2017-07-19
               </time>
             
 
@@ -326,7 +327,18 @@
       
 
       
-        <p><img src="http://oc1scpcdy.bkt.clouddn.com/p2112525956.jpg" alt="dianyinggaibao"></p>
+        <h3 id="html"><a href="#html" class="headerlink" title="html"></a>html</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">data-name</span>=<span class="string">"gua"</span>&gt;</span>你皮任你皮<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">data-name</span>=<span class="string">"pi"</span>&gt;</span>你是个瓜皮<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="js"><a href="#js" class="headerlink" title="js"></a>js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">'======h1默认值======'</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'data方法获取'</span>,$(<span class="string">'h1'</span>).data(<span class="string">'name'</span>));<span class="comment">//gua</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'attr方法获取'</span>,$(<span class="string">'h1'</span>).attr(<span class="string">'data-name'</span>));<span class="comment">//gua</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'======使用data()方法修改h1======'</span>);</div><div class="line">$(<span class="string">'h1'</span>).data(<span class="string">'name'</span>,<span class="string">'hhh'</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'data方法获取'</span>,$(<span class="string">'h1'</span>).data(<span class="string">'name'</span>));<span class="comment">//hhh</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'attr方法获取'</span>,$(<span class="string">'h1'</span>).attr(<span class="string">'data-name'</span>));<span class="comment">//gua</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'======h2默认值======'</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'data方法获取'</span>,$(<span class="string">'h2'</span>).data(<span class="string">'name'</span>));<span class="comment">//pi</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'attr方法获取'</span>,$(<span class="string">'h2'</span>).attr(<span class="string">'data-name'</span>));<span class="comment">//pi</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'======使用attr()方法修改h2======'</span>);</div><div class="line">$(<span class="string">'h2'</span>).attr(<span class="string">'data-name'</span>,<span class="string">'www'</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'data方法获取'</span>,$(<span class="string">'h2'</span>).data(<span class="string">'name'</span>));<span class="comment">//pi</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'attr方法获取'</span>,$(<span class="string">'h2'</span>).attr(<span class="string">'data-name'</span>));<span class="comment">//www</span></div></pre></td></tr></table></figure>
+<ul>
+<li>$.attr()每次都从<code>DOM元素</code>中取属性的值，即和视图中标签内的属性值保持一致。</li>
+<li>$.data()是从<code>Jquery对象</code>中取值，由于对象属性值保存在内存中，因此可能和视图里的属性值不一致的情况。</li>
+</ul>
+<p>所以$.attr()和$.data()应避免混合用，也就是应该尽量避免如下两种情况的出现：</p>
+<ol>
+<li>通过$.attr()来进行set属性，然后通过$.data()进行get属性值；</li>
+<li>通过$.data()来进行set属性，然后通过$.attr()进行get属性值。</li>
+</ol>
+<p>同时从性能的角度来说，建议使用$.data()来进行set和get操作，因为它仅仅修改的<code>Jquey对象</code>的属性值，不会引起额外的DOM操作。</p>
 
       
     </div>
@@ -363,8 +375,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/11/Js-Date/" rel="next" title="Js获取当前日期时间">
-                <i class="fa fa-chevron-left"></i> Js获取当前日期时间
+              <a href="/2017/07/18/mac-can-t-start-mysql/" rel="next" title="mac无法启动mysql">
+                <i class="fa fa-chevron-left"></i> mac无法启动mysql
               </a>
             
           </div>
@@ -372,10 +384,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/11/learntoDjango1/" rel="prev" title="Django学习路线">
-                Django学习路线 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -440,8 +448,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -494,6 +511,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#html"><span class="nav-number">1.</span> <span class="nav-text">html</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js"><span class="nav-number">2.</span> <span class="nav-text">js</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

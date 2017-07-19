@@ -254,6 +254,137 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://messixing.win/2017/07/19/data-and-attr-distinction-in-jquery/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="messixing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="messixing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/19/data-and-attr-distinction-in-jquery/" itemprop="url">
+                  data()和attr()的区别
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-19T13:40:10+08:00">
+                2017-07-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="html"><a href="#html" class="headerlink" title="html"></a>html</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">data-name</span>=<span class="string">"gua"</span>&gt;</span>你皮任你皮<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">data-name</span>=<span class="string">"pi"</span>&gt;</span>你是个瓜皮<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="js"><a href="#js" class="headerlink" title="js"></a>js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">'======h1默认值======'</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'data方法获取'</span>,$(<span class="string">'h1'</span>).data(<span class="string">'name'</span>));<span class="comment">//gua</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'attr方法获取'</span>,$(<span class="string">'h1'</span>).attr(<span class="string">'data-name'</span>));<span class="comment">//gua</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'======使用data()方法修改h1======'</span>);</div><div class="line">$(<span class="string">'h1'</span>).data(<span class="string">'name'</span>,<span class="string">'hhh'</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'data方法获取'</span>,$(<span class="string">'h1'</span>).data(<span class="string">'name'</span>));<span class="comment">//hhh</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'attr方法获取'</span>,$(<span class="string">'h1'</span>).attr(<span class="string">'data-name'</span>));<span class="comment">//gua</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'======h2默认值======'</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'data方法获取'</span>,$(<span class="string">'h2'</span>).data(<span class="string">'name'</span>));<span class="comment">//pi</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'attr方法获取'</span>,$(<span class="string">'h2'</span>).attr(<span class="string">'data-name'</span>));<span class="comment">//pi</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'======使用attr()方法修改h2======'</span>);</div><div class="line">$(<span class="string">'h2'</span>).attr(<span class="string">'data-name'</span>,<span class="string">'www'</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'data方法获取'</span>,$(<span class="string">'h2'</span>).data(<span class="string">'name'</span>));<span class="comment">//pi</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'attr方法获取'</span>,$(<span class="string">'h2'</span>).attr(<span class="string">'data-name'</span>));<span class="comment">//www</span></div></pre></td></tr></table></figure>
+<ul>
+<li>$.attr()每次都从<code>DOM元素</code>中取属性的值，即和视图中标签内的属性值保持一致。</li>
+<li>$.data()是从<code>Jquery对象</code>中取值，由于对象属性值保存在内存中，因此可能和视图里的属性值不一致的情况。</li>
+</ul>
+<p>所以$.attr()和$.data()应避免混合用，也就是应该尽量避免如下两种情况的出现：</p>
+<ol>
+<li>通过$.attr()来进行set属性，然后通过$.data()进行get属性值；</li>
+<li>通过$.data()来进行set属性，然后通过$.attr()进行get属性值。</li>
+</ol>
+<p>同时从性能的角度来说，建议使用$.data()来进行set和get操作，因为它仅仅修改的<code>Jquey对象</code>的属性值，不会引起额外的DOM操作。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://messixing.win/2017/07/18/mac-can-t-start-mysql/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1416,138 +1547,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://messixing.win/2017/02/11/learntoDjango1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="messixing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="messixing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/11/learntoDjango1/" itemprop="url">
-                  Django学习路线
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-11T02:32:40+08:00">
-                2017-02-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="http://oc1scpcdy.bkt.clouddn.com/HipstamaticPhoto-502764798.108259.jpg" alt=""></p>
-<h2 id="Django安装"><a href="#Django安装" class="headerlink" title="Django安装"></a>Django安装</h2><p>安装最新版的Django版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#安装最新版本的Django</div><div class="line">$ pip3 install  django </div><div class="line">#或者指定安装版本</div><div class="line">pip3 install -v django==1.7.1</div></pre></td></tr></table></figure></p>
-<h2 id="项目创建"><a href="#项目创建" class="headerlink" title="项目创建"></a>项目创建</h2><p>创建一个名为my_blog的Django项目</p>
-<h2 id="创建项目的指令如下"><a href="#创建项目的指令如下" class="headerlink" title="创建项目的指令如下:"></a>创建项目的指令如下:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ django-admin.py startproject my_blog</div></pre></td></tr></table></figure>
-<p>整个项目的文件结构:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ tree my_blog   #打印树形文件结构</div><div class="line">my_blog</div><div class="line">├── manage.py</div><div class="line">└── my_blog</div><div class="line">    ├── __init__.py</div><div class="line">    ├── settings.py</div><div class="line">    ├── urls.py</div><div class="line">    └── wsgi.py</div><div class="line">1 directory, 5 files</div></pre></td></tr></table></figure></p>
-<h2 id="建立Django-app"><a href="#建立Django-app" class="headerlink" title="建立Django app"></a>建立Django app</h2><p>建立一个<code>article</code>app</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ python3 manage.py startapp article</div></pre></td></tr></table></figure>
-<p>重新看一下整个项目的结构:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">── article</div><div class="line">│   ├── __init__.py</div><div class="line">│   ├── admin.py</div><div class="line">│   ├── migrations</div><div class="line">│   │   └── __init__.py</div><div class="line">│   ├── models.py</div><div class="line">│   ├── tests.py</div><div class="line">│   └── views.py</div><div class="line">├── db.sqlite3</div><div class="line">├── manage.py</div><div class="line">├── my_blog</div><div class="line">    ├── __init__.py</div><div class="line">    ├── __pycache__</div><div class="line">    │   ├── __init__.cpython-34.pyc</div><div class="line">    │   ├── settings.cpython-34.pyc</div><div class="line">    │   ├── urls.cpython-34.pyc</div><div class="line">    │   └── wsgi.cpython-34.pyc</div><div class="line">    ├── settings.py</div><div class="line">    ├── urls.py</div><div class="line">    └── wsgi.py</div></pre></td></tr></table></figure></p>
-<p>并在my_blog/my_blog/setting.py下添加新建app<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">INSTALLED_APPS = (</div><div class="line">    ...</div><div class="line">    &apos;article&apos;,  #这里填写的是app的名称</div><div class="line">)</div></pre></td></tr></table></figure></p>
-<h2 id="运行程序"><a href="#运行程序" class="headerlink" title="运行程序"></a>运行程序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ python3 manage.py runserver   #启动Django中的开发服务器</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">如果运行上面命令出现以下提示</div><div class="line">You have unapplied migrations; your app may not work properly until they are applied.</div><div class="line">Run &apos;python manage.py migrate&apos; to apply them.</div><div class="line">请先使用下面命令</div><div class="line">python3 manage.py migrate</div><div class="line">输出如下信息</div><div class="line">Operations to perform:</div><div class="line">  Apply all migrations: contenttypes, sessions, admin, auth</div><div class="line">Running migrations:</div><div class="line">  Applying contenttypes.0001_initial... OK</div><div class="line">  Applying auth.0001_initial... OK</div><div class="line">  Applying admin.0001_initial... OK</div><div class="line">  Applying sessions.0001_initial... OK</div></pre></td></tr></table></figure>
-<p>运行成功后,会显示如下信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">重新运行启动Django中的开发服务器</div><div class="line">$ python3 manage.py runserver</div><div class="line">运行成功显示如下信息</div><div class="line">System check identified no issues (0 silenced).</div><div class="line">December 21, 2014 - 08:56:00</div><div class="line">Django version 1.7.1, using settings &apos;my_blog.settings&apos;</div><div class="line">Starting development server at http://127.0.0.1:8000/</div><div class="line">Quit the server with CONTROL-C.</div></pre></td></tr></table></figure></p>
-<p>现在可以启动浏览器, 输入<a href="http://127.0.0.1:8000/" target="_blank" rel="external">http://127.0.0.1:8000/</a>, 当出现<br><img src="http://oc1scpcdy.bkt.clouddn.com/django.png" alt="django"><br>说明你成功走出了第一步!</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1597,7 +1596,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
