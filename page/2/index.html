@@ -254,6 +254,147 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://messixing.win/2017/02/12/learntoDjango2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="messixing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="messixing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/12/learntoDjango2/" itemprop="url">
+                  django学习路线（二）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-12T14:50:20+08:00">
+                2017-02-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="http://oc1scpcdy.bkt.clouddn.com/111839536000fd56b6l.jpg" alt="django"></p>
+<h2 id="Django-Model"><a href="#Django-Model" class="headerlink" title="Django Model"></a>Django Model</h2><ul>
+<li>每一个<code>Django Model</code>都继承自<code>django.db.models.Model</code></li>
+<li>在<code>Model</code>当中每一个属性<code>attribute</code>都代表一个database field</li>
+<li>通过<code>Django Model API</code>可以执行数据库的增删改查, 而不需要写一些数据库的查询语句<h2 id="设置数据库"><a href="#设置数据库" class="headerlink" title="设置数据库"></a>设置数据库</h2></li>
+</ul>
+<p>Django项目建成后, 默认设置了使用SQLite数据库, 在my_blog/my_blog/setting.py中可以查看和修改数据库设置:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">DATABASES = &#123;</div><div class="line">    &apos;default&apos;: &#123;</div><div class="line">        &apos;ENGINE&apos;: &apos;django.db.backends.sqlite3&apos;,</div><div class="line">        &apos;NAME&apos;: os.path.join(BASE_DIR, &apos;db.sqlite3&apos;),</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>还可以设置其他数据库, 如<code>MySQL, PostgreSQL</code>, 现在为了简单, 使用默认数据库设置</p>
+<h2 id="创建models"><a href="#创建models" class="headerlink" title="创建models"></a>创建models</h2><p>在my_blog/article/models.py下编写如下程序:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">from django.db import models</div><div class="line"># Create your models here.</div><div class="line">class Article(models.Model) :</div><div class="line">    title = models.CharField(max_length = 100)  #博客题目</div><div class="line">    category = models.CharField(max_length = 50, blank = True)  #博客标签</div><div class="line">    date_time = models.DateTimeField(auto_now_add = True)  #博客日期</div><div class="line">    content = models.TextField(blank = True, null = True)  #博客文章正文</div><div class="line">    def __unicode__(self) :</div><div class="line">        return self.title</div><div class="line">    class Meta:  #按时间下降排序</div><div class="line">        ordering = [&apos;-date_time&apos;]</div></pre></td></tr></table></figure></p>
+<p>其中<code>__unicode__(self)</code>函数<code>Article</code>对象要怎么表示自己, 一般系统默认使用<code>&lt;Article: Article object&gt;</code>来表示对象, 通过这个函数可以告诉系统使用title字段来表示这个对象</p>
+<ul>
+<li><code>CharField</code> 用于存储字符串, max_length设置最大长度</li>
+<li><code>TextField</code> 用于存储大量文本</li>
+<li><code>DateTimeField</code> 用于存储时间, auto_now_add设置True表示自动设置对象增加时间<h2 id="同步数据库"><a href="#同步数据库" class="headerlink" title="同步数据库"></a>同步数据库</h2></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ python3 manage.py migrate #命令行运行该命令</div></pre></td></tr></table></figure>
+<p>因为我们已经执行过该命令会出现如下提示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Operations to perform:</div><div class="line">  Apply all migrations: admin, contenttypes, sessions, auth</div><div class="line">Running migrations:</div><div class="line">  No migrations to apply.</div><div class="line">  Your models have changes that are not yet reflected in a migration, and so won&apos;t be applied.</div><div class="line">  Run &apos;manage.py makemigrations&apos; to make new migrations, and then re-run &apos;manage.py migrate&apos; to apply them.</div></pre></td></tr></table></figure></p>
+<p>那么现在需要执行下面的命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ python3 manage.py makemigrations</div><div class="line"></div><div class="line">#得到如下提示</div><div class="line">Migrations for &apos;article&apos;:</div><div class="line">  0001_initial.py:</div><div class="line">    - Create model Article</div></pre></td></tr></table></figure></p>
+<p>现在重新运行以下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ python3 manage.py migrate</div><div class="line">#出现如下提示表示操作成功</div><div class="line">Operations to perform:</div><div class="line">  Apply all migrations: auth, sessions, admin, article, contenttypes</div><div class="line">Running migrations:</div><div class="line">  Applying article.0001_initial... OK</div></pre></td></tr></table></figure></p>
+<p>migrate命令按照app顺序建立或者更新数据库, 将<code>models.py</code>与数据库同步</p>
+<h2 id="Django-Shell"><a href="#Django-Shell" class="headerlink" title="Django Shell"></a>Django Shell</h2><p>现在我们进入Django中的交互式shell来进行数据库的增删改查等操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ python3 manage.py shell</div><div class="line">Python 3.4.2 (v3.4.2:ab2c023a9432, Oct  5 2014, 20:42:22)</div><div class="line">[GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin</div><div class="line">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</div><div class="line">(InteractiveConsole)</div><div class="line">&gt;&gt;&gt;</div></pre></td></tr></table></figure></p>
+<p>这里进入Django的shell和python内置的shell是非常类似的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; from article.models import Article</div><div class="line">&gt;&gt;&gt; #create数据库增加操作</div><div class="line">&gt;&gt;&gt; Article.objects.create(title = &apos;Hello World&apos;, category = &apos;Python&apos;, content = &apos;我们来做一个简单的数据库增加操作&apos;)</div><div class="line">&lt;Article: Article object&gt;</div><div class="line">&gt;&gt;&gt; Article.objects.create(title = &apos;Django Blog学习&apos;, category = &apos;Python&apos;, content = &apos;Django简单博客教程&apos;)</div><div class="line">&lt;Article: Article object&gt;</div><div class="line"></div><div class="line">&gt;&gt;&gt; #all和get的数据库查看操作</div><div class="line">&gt;&gt;&gt; Article.objects.all()  #查看全部对象, 返回一个列表, 无对象返回空list</div><div class="line">[&lt;Article: Article object&gt;, &lt;Article: Article object&gt;]</div><div class="line">&gt;&gt;&gt; Article.objects.get(id = 1)  #返回符合条件的对象</div><div class="line">&lt;Article: Article object&gt;</div><div class="line"></div><div class="line">&gt;&gt;&gt; #update数据库修改操作</div><div class="line">&gt;&gt;&gt; first = Article.objects.get(id = 1)  #获取id = 1的对象</div><div class="line">&gt;&gt;&gt; first.title</div><div class="line">&apos;Hello World&apos;</div><div class="line">&gt;&gt;&gt; first.date_time</div><div class="line">datetime.datetime(2014, 12, 26, 13, 56, 48, 727425, tzinfo=&lt;UTC&gt;)</div><div class="line">&gt;&gt;&gt; first.content</div><div class="line">&apos;我们来做一个简单的数据库增加操作&apos;</div><div class="line">&gt;&gt;&gt; first.category</div><div class="line">&apos;Python&apos;</div><div class="line">&gt;&gt;&gt; first.content = &apos;Hello World, How are you&apos;</div><div class="line">&gt;&gt;&gt; first.content  #再次查看是否修改成功, 修改操作就是点语法</div><div class="line">&apos;Hello World, How are you&apos;</div><div class="line"></div><div class="line">&gt;&gt;&gt; #delete数据库删除操作</div><div class="line">&gt;&gt;&gt; first.delete()</div><div class="line">&gt;&gt;&gt; Article.objects.all()  #此时可以看到只有一个对象了, 另一个对象已经被成功删除</div><div class="line">[&lt;Article: Article object&gt;]</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://messixing.win/2017/02/11/learntoDjango1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1464,132 +1605,11 @@ localStorage.getItem(&#39;test&#39;);</code><br>localStorage可以存储k-v形�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://messixing.win/2015/03/18/about-Deployer-not-found-git/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="messixing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="messixing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/03/18/about-Deployer-not-found-git/" itemprop="url">
-                  关于Deployer not found: git的问题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-03-18T19:07:43+08:00">
-                2015-03-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>修改好主题文件夹里的<em>_config.yml</em>文件后<br>进行<code>hexo g</code><br>再<code>hexo d</code><br>会报出错误 <code>ERROR Deployer not found: git</code><br>这时需要先<code>npm install hexo-deployer-git --save</code><br>再<code>hexo g</code><br><code>hexo d</code><br>就会提示 <code>Deploy done: git</code></p>
-<p>ps:前提  <em>_config.yml</em> 中type先设置为git </p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1634,7 +1654,7 @@ localStorage.getItem(&#39;test&#39;);</code><br>localStorage可以存储k-v形�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
