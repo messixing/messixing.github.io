@@ -201,7 +201,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -211,7 +211,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -244,6 +244,142 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://messixing.win/2017/08/10/javascript-module-pattern/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="messixing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="messixing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/10/javascript-module-pattern/" itemprop="url">
+                  javascript-module-pattern
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-10T16:11:43+08:00">
+                2017-08-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="一、原始写法"><a href="#一、原始写法" class="headerlink" title="一、原始写法"></a>一、原始写法</h2><p>模块就是实现特定功能的一组方法。只要把不同的函数（以及记录状态的变量）简单地放在一起，就算是一个模块。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">m1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="comment">//...</span></div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">m2</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="comment">//...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>写法：只要把不同的函数（以及记录状态的变量）简单地放在一起，就算是一个模块。</p>
+<p>缺点：污染了全局变量，无法保证不与其他模块发生变量名冲突，而且模块成员之间看不出直接关系。</p>
+<h2 id="二、对象写法"><a href="#二、对象写法" class="headerlink" title="二、对象写法"></a>二、对象写法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> module1=<span class="keyword">new</span> <span class="built_in">Object</span>(&#123;</div><div class="line">    <span class="attr">_count</span>:<span class="number">0</span>,</div><div class="line"></div><div class="line">    <span class="attr">m1</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="comment">//...</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">m2</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="comment">//...</span></div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">module1._count = <span class="number">5</span>;</div><div class="line">module1.m1();</div></pre></td></tr></table></figure>
+<p>写法：把模块写成一个对象，所有的模块成员都放到这个对象里面。<br>缺点：暴露所有模块成员，内部状态可以被外部改写。</p>
+<h2 id="三、立即执行函数（Immediately-Invoked-Function-Expression，IIFE）写法"><a href="#三、立即执行函数（Immediately-Invoked-Function-Expression，IIFE）写法" class="headerlink" title="三、立即执行函数（Immediately-Invoked Function Expression，IIFE）写法"></a>三、立即执行函数（Immediately-Invoked Function Expression，IIFE）写法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> module1=(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> _count=<span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> m1=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="comment">//...</span></div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> m2=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="comment">//...</span></div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">m1</span>:m1,</div><div class="line">        <span class="attr">m2</span>:m2</div><div class="line">    &#125;;</div><div class="line">&#125;)();</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(module1._count); <span class="comment">//undefined</span></div></pre></td></tr></table></figure>
+<p>优点：外部代码无法读取内部变量，不暴露私有成员。</p>
+<h2 id="四、放大模式"><a href="#四、放大模式" class="headerlink" title="四、放大模式"></a>四、放大模式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> module1=(<span class="function"><span class="keyword">function</span>(<span class="params">mod</span>)</span>&#123;</div><div class="line"></div><div class="line">    mod.m3=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="comment">//...</span></div><div class="line">    &#125;;</div><div class="line"></div><div class="line">&#125;)(module1);</div></pre></td></tr></table></figure>
+<p>场景：如果一个模块很大，必须分成几个部分，或者一个模块需要继承另一个模块，<br>这时就可以采用“放大模式”（augmentation）。<br>释义：上面代码为module1模块添加了一个新方法m3()，然后返回新的module1模块。</p>
+<h2 id="五、宽放大模式（Loose-augmentation）"><a href="#五、宽放大模式（Loose-augmentation）" class="headerlink" title="五、宽放大模式（Loose augmentation）"></a>五、宽放大模式（Loose augmentation）</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> module1=(<span class="function"><span class="keyword">function</span>(<span class="params">mod</span>)</span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">//...</span></div><div class="line">    <span class="keyword">return</span> mod;</div><div class="line"></div><div class="line">&#125;)(<span class="built_in">window</span>.module1||&#123;&#125;);</div></pre></td></tr></table></figure>
+<p>场景：在浏览器环境中，模块的各个部分通常是从网上获取的，有时无法知道哪个部分<br>会先加载。如果采用放大模式，第一个执行的部分有可能加载一个不存在对象，<br>这时就可采用“宽放大模式”。<br>比较：与“放大模式”相比，“宽放大模式”就是“立即执行函数”的参数可以是空对象。</p>
+<h2 id="六、输入全局变量"><a href="#六、输入全局变量" class="headerlink" title="六、输入全局变量"></a>六、输入全局变量</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> module1=(<span class="function"><span class="keyword">function</span>(<span class="params">$,YAHOO</span>)</span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">//...</span></div><div class="line"></div><div class="line">&#125;)(jQuery,YAHOO);</div></pre></td></tr></table></figure>
+<p>场景：独立性是模块的重要特点，模块内部最好不与程序的其他部分直接交互。<br>为了在模块内部调用全局变量，必须显式地将其他变量输入模块。</p>
+<h2 id="七、AMD规范"><a href="#七、AMD规范" class="headerlink" title="七、AMD规范"></a>七、AMD规范</h2><p><a href="https://github.com/amdjs/amdjs-api/wiki/AMD" target="_blank" rel="external">AMD</a>是”Asynchronous Module Definition”的缩写，意思就是”异步模块定义”。它采用异步方式加载模块，模块的加载不影响它后面语句的运行。所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行。AMD也采用require()语句加载模块，但是不同于CommonJS，它要求两个参数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>([<span class="built_in">module</span>],callback);</div></pre></td></tr></table></figure>
+<p>第一个参数[module]，是一个数组，里面的成员就是要加载的模块；第二个参数callback，则是加载成功之后的回调函数。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -291,7 +427,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-26T09:50:55+08:00">
                 2017-07-26
@@ -418,7 +554,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-19T13:40:10+08:00">
                 2017-07-19
@@ -549,7 +685,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-18T13:26:26+08:00">
                 2017-07-18
@@ -678,7 +814,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-17T15:47:18+08:00">
                 2017-07-17
@@ -808,7 +944,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-17T15:42:09+08:00">
                 2017-07-17
@@ -930,7 +1066,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-20T15:26:04+08:00">
                 2017-05-20
@@ -1050,7 +1186,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-02T16:08:53+08:00">
                 2017-05-02
@@ -1186,7 +1322,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-20T13:26:02+08:00">
                 2017-04-20
@@ -1309,7 +1445,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-20T22:12:33+08:00">
                 2017-03-20
@@ -1398,141 +1534,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://messixing.win/2017/03/08/Js-Array-operation-summary/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="messixing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="messixing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/08/Js-Array-operation-summary/" itemprop="url">
-                  js数组操作总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-08T22:51:12+08:00">
-                2017-03-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-数组的创建"><a href="#1-数组的创建" class="headerlink" title="1.数组的创建"></a>1.数组的创建</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arrayObj = <span class="keyword">new</span> <span class="built_in">Array</span>();　<span class="comment">//创建一个数组</span></div><div class="line"><span class="keyword">var</span> arrayObj = <span class="keyword">new</span> <span class="built_in">Array</span>([size]);　<span class="comment">//创建一个数组并指定长度，注意不是上限，是长度</span></div><div class="line"><span class="keyword">var</span> arrayObj = <span class="keyword">new</span> <span class="built_in">Array</span>([element0[, element1[, ...[, elementN]]]]);　<span class="comment">//创建一个数组并赋值</span></div></pre></td></tr></table></figure>
-<h2 id="2-数组的元素访问"><a href="#2-数组的元素访问" class="headerlink" title="2.数组的元素访问"></a>2.数组的元素访问</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> testGetArrValue=arrayObj[<span class="number">1</span>]; <span class="comment">//获取数组的元素值</span></div><div class="line">arrayObj[<span class="number">1</span>]= <span class="string">"这是新值"</span>; <span class="comment">//给数组元素赋予新的值</span></div></pre></td></tr></table></figure>
-<h2 id="3-数组元素的添加"><a href="#3-数组元素的添加" class="headerlink" title="3.数组元素的添加"></a>3.数组元素的添加</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arrayObj. push([item1 [item2 [. . . [itemN ]]]]);<span class="comment">// 将一个或多个新元素添加到数组结尾，并返回数组新长度</span></div><div class="line">arrayObj.unshift([item1 [item2 [. . . [itemN ]]]]);<span class="comment">// 将一个或多个新元素添加到数组开始，数组中的元素自动后移，返回数组新长度</span></div><div class="line">arrayObj.splice(insertPos,<span class="number">0</span>,[item1[, item2[, . . . [,itemN]]]]);<span class="comment">//将一个或多个新元素插入到数组的指定位置，插入位置的元素自动后移，返回""</span></div></pre></td></tr></table></figure>
-<h2 id="4-数组元素的删除"><a href="#4-数组元素的删除" class="headerlink" title="4.数组元素的删除"></a>4.数组元素的删除</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arrayObj.pop(); <span class="comment">//移除最后一个元素并返回该元素值</span></div><div class="line">arrayObj.shift(); <span class="comment">//移除最前一个元素并返回该元素值，数组中元素自动前移</span></div><div class="line">arrayObj.splice(deletePos,deleteCount); <span class="comment">//删除从指定位置deletePos开始的指定数量deleteCount的元素，数组形式返回所移除的元素</span></div></pre></td></tr></table></figure>
-<h2 id="5-数组的截取和合并"><a href="#5-数组的截取和合并" class="headerlink" title="5.数组的截取和合并"></a>5.数组的截取和合并</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arrayObj.slice(start, [end]); <span class="comment">//以数组的形式返回数组的一部分，注意不包括 end 对应的元素，如果省略 end 将复制 start 之后的所有元素</span></div><div class="line">arrayObj.concat([item1[, item2[, . . . [,itemN]]]]); <span class="comment">//将多个数组（也可以是字符串，或者是数组和字符串的混合）连接为一个数组，返回连接好的新的数组</span></div></pre></td></tr></table></figure>
-<h2 id="6-数组的拷贝"><a href="#6-数组的拷贝" class="headerlink" title="6.数组的拷贝"></a>6.数组的拷贝</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arrayObj.slice(<span class="number">0</span>); <span class="comment">//返回数组的拷贝数组，注意是一个新的数组，不是指向</span></div><div class="line">arrayObj.concat(); <span class="comment">//返回数组的拷贝数组，注意是一个新的数组，不是指向</span></div></pre></td></tr></table></figure>
-<h2 id="7-数组元素的排序"><a href="#7-数组元素的排序" class="headerlink" title="7.数组元素的排序"></a>7.数组元素的排序</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arrayObj.reverse(); <span class="comment">//反转元素（最前的排到最后、最后的排到最前），返回数组地址</span></div><div class="line">arrayObj.sort(); <span class="comment">//对数组元素排序，返回数组地址</span></div></pre></td></tr></table></figure>
-<h2 id="8-数组元素的字符串化"><a href="#8-数组元素的字符串化" class="headerlink" title="8.数组元素的字符串化"></a>8.数组元素的字符串化</h2><p><code>join()</code>方法是一个非常实用的方法，它把当前Array的每个元素都用指定的字符串连接起来，然后返回连接后的字符串：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arrayObj.join(separator); <span class="comment">//返回字符串，这个字符串将数组的每一个元素值连接在一起，中间用 separator 隔开</span></div><div class="line"><span class="keyword">var</span> arr = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line">arr.join(<span class="string">'-'</span>); <span class="comment">// 'A-B-C-1-2-3'</span></div></pre></td></tr></table></figure>
-<p>如果Array的元素不是字符串，将自动转换为字符串后再连接。</p>
-<p><code>valueOf</code>: 与String类似，Array也可以通过indexOf()来搜索一个指定的元素的位置：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">10</span>, <span class="number">20</span>, <span class="string">'30'</span>, <span class="string">'xyz'</span>];</div><div class="line">arr.indexOf(<span class="number">10</span>); <span class="comment">// 元素10的索引为0</span></div><div class="line">arr.indexOf(<span class="number">30</span>); <span class="comment">// 元素30没有找到，返回-1</span></div><div class="line">arr.indexOf(<span class="string">'30'</span>); <span class="comment">// 元素'30'的索引为2</span></div></pre></td></tr></table></figure>
-<p>toLocaleString 、toString：可以看作是join的特殊用法，不常用; <em>toLocaleString()</em>: 方法可根据本地时间把 Date 对象转换为字符串，并返回结果。</p>
-<p><strong>toString</strong>:把数组转换为字符串，并返回结果。</p>
-<p><strong>lastIndexOf</strong>：返回在数组中搜索到的与给定参数相等的元素的最后（最大）索引。</p>
-<p><strong>toSource()</strong>: 返回一个字符串,代表该数组的源代码.该特性是非标准的，请尽量不要在生产环境中使用它！</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1582,8 +1583,8 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">21</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -1596,7 +1597,7 @@
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               
             </div>
           
@@ -1646,7 +1647,7 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

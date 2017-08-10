@@ -201,7 +201,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -211,7 +211,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -244,6 +244,141 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://messixing.win/2017/03/08/Js-Array-operation-summary/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="messixing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="messixing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/08/Js-Array-operation-summary/" itemprop="url">
+                  js数组操作总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-08T22:51:12+08:00">
+                2017-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-数组的创建"><a href="#1-数组的创建" class="headerlink" title="1.数组的创建"></a>1.数组的创建</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arrayObj = <span class="keyword">new</span> <span class="built_in">Array</span>();　<span class="comment">//创建一个数组</span></div><div class="line"><span class="keyword">var</span> arrayObj = <span class="keyword">new</span> <span class="built_in">Array</span>([size]);　<span class="comment">//创建一个数组并指定长度，注意不是上限，是长度</span></div><div class="line"><span class="keyword">var</span> arrayObj = <span class="keyword">new</span> <span class="built_in">Array</span>([element0[, element1[, ...[, elementN]]]]);　<span class="comment">//创建一个数组并赋值</span></div></pre></td></tr></table></figure>
+<h2 id="2-数组的元素访问"><a href="#2-数组的元素访问" class="headerlink" title="2.数组的元素访问"></a>2.数组的元素访问</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> testGetArrValue=arrayObj[<span class="number">1</span>]; <span class="comment">//获取数组的元素值</span></div><div class="line">arrayObj[<span class="number">1</span>]= <span class="string">"这是新值"</span>; <span class="comment">//给数组元素赋予新的值</span></div></pre></td></tr></table></figure>
+<h2 id="3-数组元素的添加"><a href="#3-数组元素的添加" class="headerlink" title="3.数组元素的添加"></a>3.数组元素的添加</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arrayObj. push([item1 [item2 [. . . [itemN ]]]]);<span class="comment">// 将一个或多个新元素添加到数组结尾，并返回数组新长度</span></div><div class="line">arrayObj.unshift([item1 [item2 [. . . [itemN ]]]]);<span class="comment">// 将一个或多个新元素添加到数组开始，数组中的元素自动后移，返回数组新长度</span></div><div class="line">arrayObj.splice(insertPos,<span class="number">0</span>,[item1[, item2[, . . . [,itemN]]]]);<span class="comment">//将一个或多个新元素插入到数组的指定位置，插入位置的元素自动后移，返回""</span></div></pre></td></tr></table></figure>
+<h2 id="4-数组元素的删除"><a href="#4-数组元素的删除" class="headerlink" title="4.数组元素的删除"></a>4.数组元素的删除</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arrayObj.pop(); <span class="comment">//移除最后一个元素并返回该元素值</span></div><div class="line">arrayObj.shift(); <span class="comment">//移除最前一个元素并返回该元素值，数组中元素自动前移</span></div><div class="line">arrayObj.splice(deletePos,deleteCount); <span class="comment">//删除从指定位置deletePos开始的指定数量deleteCount的元素，数组形式返回所移除的元素</span></div></pre></td></tr></table></figure>
+<h2 id="5-数组的截取和合并"><a href="#5-数组的截取和合并" class="headerlink" title="5.数组的截取和合并"></a>5.数组的截取和合并</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arrayObj.slice(start, [end]); <span class="comment">//以数组的形式返回数组的一部分，注意不包括 end 对应的元素，如果省略 end 将复制 start 之后的所有元素</span></div><div class="line">arrayObj.concat([item1[, item2[, . . . [,itemN]]]]); <span class="comment">//将多个数组（也可以是字符串，或者是数组和字符串的混合）连接为一个数组，返回连接好的新的数组</span></div></pre></td></tr></table></figure>
+<h2 id="6-数组的拷贝"><a href="#6-数组的拷贝" class="headerlink" title="6.数组的拷贝"></a>6.数组的拷贝</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arrayObj.slice(<span class="number">0</span>); <span class="comment">//返回数组的拷贝数组，注意是一个新的数组，不是指向</span></div><div class="line">arrayObj.concat(); <span class="comment">//返回数组的拷贝数组，注意是一个新的数组，不是指向</span></div></pre></td></tr></table></figure>
+<h2 id="7-数组元素的排序"><a href="#7-数组元素的排序" class="headerlink" title="7.数组元素的排序"></a>7.数组元素的排序</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arrayObj.reverse(); <span class="comment">//反转元素（最前的排到最后、最后的排到最前），返回数组地址</span></div><div class="line">arrayObj.sort(); <span class="comment">//对数组元素排序，返回数组地址</span></div></pre></td></tr></table></figure>
+<h2 id="8-数组元素的字符串化"><a href="#8-数组元素的字符串化" class="headerlink" title="8.数组元素的字符串化"></a>8.数组元素的字符串化</h2><p><code>join()</code>方法是一个非常实用的方法，它把当前Array的每个元素都用指定的字符串连接起来，然后返回连接后的字符串：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arrayObj.join(separator); <span class="comment">//返回字符串，这个字符串将数组的每一个元素值连接在一起，中间用 separator 隔开</span></div><div class="line"><span class="keyword">var</span> arr = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line">arr.join(<span class="string">'-'</span>); <span class="comment">// 'A-B-C-1-2-3'</span></div></pre></td></tr></table></figure>
+<p>如果Array的元素不是字符串，将自动转换为字符串后再连接。</p>
+<p><code>valueOf</code>: 与String类似，Array也可以通过indexOf()来搜索一个指定的元素的位置：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">10</span>, <span class="number">20</span>, <span class="string">'30'</span>, <span class="string">'xyz'</span>];</div><div class="line">arr.indexOf(<span class="number">10</span>); <span class="comment">// 元素10的索引为0</span></div><div class="line">arr.indexOf(<span class="number">30</span>); <span class="comment">// 元素30没有找到，返回-1</span></div><div class="line">arr.indexOf(<span class="string">'30'</span>); <span class="comment">// 元素'30'的索引为2</span></div></pre></td></tr></table></figure>
+<p>toLocaleString 、toString：可以看作是join的特殊用法，不常用; <em>toLocaleString()</em>: 方法可根据本地时间把 Date 对象转换为字符串，并返回结果。</p>
+<p><strong>toString</strong>:把数组转换为字符串，并返回结果。</p>
+<p><strong>lastIndexOf</strong>：返回在数组中搜索到的与给定参数相等的元素的最后（最大）索引。</p>
+<p><strong>toSource()</strong>: 返回一个字符串,代表该数组的源代码.该特性是非标准的，请尽量不要在生产环境中使用它！</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -291,7 +426,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-12T14:50:20+08:00">
                 2017-02-12
@@ -432,7 +567,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-11T02:32:40+08:00">
                 2017-02-11
@@ -564,7 +699,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-29T11:13:22+08:00">
                 2016-08-29
@@ -684,7 +819,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-11T11:13:55+08:00">
                 2016-08-11
@@ -804,7 +939,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-05T15:02:37+08:00">
                 2016-08-05
@@ -953,7 +1088,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-29T11:57:46+08:00">
                 2016-07-29
@@ -1141,7 +1276,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-29T10:48:32+08:00">
                 2016-07-29
@@ -1273,7 +1408,7 @@ localStorage.getItem(&#39;test&#39;);</code><br>localStorage可以存储k-v形�
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-03-30T00:00:00+08:00">
                 2015-03-30
@@ -1398,7 +1533,7 @@ localStorage.getItem(&#39;test&#39;);</code><br>localStorage可以存储k-v形�
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-03-27T00:00:00+08:00">
                 2015-03-27
@@ -1442,135 +1577,6 @@ localStorage.getItem(&#39;test&#39;);</code><br>localStorage可以存储k-v形�
 <h2 id="解决方法-2-String的split方法"><a href="#解决方法-2-String的split方法" class="headerlink" title="解决方法 2: String的split方法"></a>解决方法 2: String的split方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFileExtension2</span>(<span class="params">filename</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> filename.split(<span class="string">'.'</span>).pop();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="解决方法-3-String的slice、lastIndexOf方法"><a href="#解决方法-3-String的slice、lastIndexOf方法" class="headerlink" title="解决方法 3: String的slice、lastIndexOf方法"></a>解决方法 3: String的slice、lastIndexOf方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFileExtension3</span>(<span class="params">filename</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> filename.slice((filename.lastIndexOf(<span class="string">"."</span>) - <span class="number">1</span> &gt;&gt;&gt; <span class="number">0</span>) + <span class="number">2</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(getFileExtension3(<span class="string">''</span>));                            <span class="comment">// ''</span></div><div class="line"><span class="built_in">console</span>.log(getFileExtension3(<span class="string">'filename'</span>));                    <span class="comment">// ''</span></div><div class="line"><span class="built_in">console</span>.log(getFileExtension3(<span class="string">'filename.txt'</span>));                <span class="comment">// 'txt'</span></div><div class="line"><span class="built_in">console</span>.log(getFileExtension3(<span class="string">'.hiddenfile'</span>));                 <span class="comment">// ''</span></div><div class="line"><span class="built_in">console</span>.log(getFileExtension3(<span class="string">'filename.with.many.dots.ext'</span>)); <span class="comment">// 'ext'</span></div></pre></td></tr></table></figure>
 <hr>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://messixing.win/2015/03/25/jQuerycodesnippet/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="messixing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="messixing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/03/25/jQuerycodesnippet/" itemprop="url">
-                  十条jQuery代码片段
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-03-25T00:00:00+08:00">
-                2015-03-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="检测IE浏览器"><a href="#检测IE浏览器" class="headerlink" title="检测IE浏览器"></a>检测IE浏览器</h2><p>在进行CSS设计时，IE浏览器对开发者及设计师而言无疑是个麻烦。尽管IE6的黑暗时代已经过去，IE浏览器家族的人气亦在不断下滑，但我们仍然有必要对其进行检测。当然，以下片段亦可用于检测其它浏览器。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; </div><div class="line">      <span class="keyword">if</span> (navigator.userAgent.match(<span class="regexp">/msie/i</span>) )&#123; </div><div class="line">        alert(<span class="string">'I am an old fashioned Internet Explorer'</span>); </div><div class="line">      &#125; </div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<h2 id="平滑滚动至页面顶部"><a href="#平滑滚动至页面顶部" class="headerlink" title="平滑滚动至页面顶部"></a>平滑滚动至页面顶部</h2><p>以下是jQuery最为常见的一种实现效果：点击一条链接以平滑滚动至页面顶部。虽然没什么新鲜感可言，但每位开发者几乎都用得上。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"a[href='#top']"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; </div><div class="line">  $(<span class="string">"html, body"</span>).animate(&#123; <span class="attr">scrollTop</span>: <span class="number">0</span> &#125;, <span class="string">"slow"</span>); </div><div class="line">  <span class="keyword">return</span> <span class="literal">false</span>; </div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<h2 id="保持始终处于顶部"><a href="#保持始终处于顶部" class="headerlink" title="保持始终处于顶部"></a>保持始终处于顶部</h2><p>以下代码片段允许某一元素始终处于页面顶部。可以想见，其非常适合处理导航菜单、工具栏或者其它重要信息。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> $win = $(<span class="built_in">window</span>)</div><div class="line">        <span class="keyword">var</span> $nav = $(<span class="string">'.mytoolbar'</span>);</div><div class="line">        <span class="keyword">var</span> navTop = $(<span class="string">'.mytoolbar'</span>).length &amp;&amp; $(<span class="string">'.mytoolbar'</span>).offset().top;</div><div class="line">        <span class="keyword">var</span> isFixed=<span class="number">0</span>;</div><div class="line">        processScroll();</div><div class="line">        $win.on(<span class="string">'scroll'</span>, processScroll);</div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">processScroll</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> i, scrollTop = $win.scrollTop()</div><div class="line">            <span class="keyword">if</span> (scrollTop &gt;= navTop &amp;&amp; !isFixed) &#123;</div><div class="line">                isFixed = <span class="number">1</span></div><div class="line">                $nav.addClass(<span class="string">'subnav-fixed'</span>)</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (scrollTop &lt;= navTop &amp;&amp; isFixed) &#123;</div><div class="line">                isFixed = <span class="number">0</span></div><div class="line">                $nav.removeClass(<span class="string">'subnav-fixed'</span>)</div><div class="line">            &#125;</div><div class="line">        &#125;</div></pre></td></tr></table></figure></p>
-<h2 id="替换html标签"><a href="#替换html标签" class="headerlink" title="替换html标签"></a>替换html标签</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">jQuery能够非常轻松地实现html标签替换，而这也将为我们带来更多新的可能。</div><div class="line">$(<span class="string">'li'</span>).replaceWith(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </div><div class="line">  <span class="keyword">return</span> $(<span class="string">"&lt;div /&gt;"</span>).append($(<span class="keyword">this</span>).contents()); </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h2 id="检测屏幕宽度"><a href="#检测屏幕宽度" class="headerlink" title="检测屏幕宽度"></a>检测屏幕宽度</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> responsive_viewport = $(<span class="built_in">window</span>).width(); </div><div class="line"><span class="comment">/* if is below 481px */</span> </div><div class="line"><span class="keyword">if</span> (responsive_viewport &lt; <span class="number">481</span>) &#123; </div><div class="line">    alert(<span class="string">'Viewport is smaller than 481px.'</span>); </div><div class="line">&#125; <span class="comment">/* end smallest screen */</span></div></pre></td></tr></table></figure>
-<h2 id="自动修复损坏图片"><a href="#自动修复损坏图片" class="headerlink" title="自动修复损坏图片"></a>自动修复损坏图片</h2><p>如果大家的站点非常庞大而且已经上线数年，那么其中或多或少会出现图片损坏的情况。这项功能可以检测损坏图片并根据我们的选择加以替换。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'img'</span>).error(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </div><div class="line">$(<span class="keyword">this</span>).attr(<span class="string">'src'</span>, <span class="string">'img/broken.png'</span>); </div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<h2 id="检测复制、粘贴与剪切操作"><a href="#检测复制、粘贴与剪切操作" class="headerlink" title="检测复制、粘贴与剪切操作"></a>检测复制、粘贴与剪切操作</h2><p>利用jQuery，大家可以非常轻松地检测到选定元素的复制、粘贴与剪切操作。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#textA"</span>).bind(<span class="string">'copy'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; </div><div class="line">    $(<span class="string">'span'</span>).text(<span class="string">'copy behaviour detected!'</span>) </div><div class="line">&#125;); </div><div class="line">$(<span class="string">"#textA"</span>).bind(<span class="string">'paste'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; </div><div class="line">    $(<span class="string">'span'</span>).text(<span class="string">'paste behaviour detected!'</span>) </div><div class="line">&#125;); </div><div class="line">$(<span class="string">"#textA"</span>).bind(<span class="string">'cut'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; </div><div class="line">    $(<span class="string">'span'</span>).text(<span class="string">'cut behaviour detected!'</span>) </div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<h2 id="自动为外部链接添target-“blank”属性"><a href="#自动为外部链接添target-“blank”属性" class="headerlink" title="自动为外部链接添target=“blank”属性"></a>自动为外部链接添target=“blank”属性</h2><p>在链接至外部站点时，大家可能希望使用target=”blank”属性以确保在新的选项卡中打开页面。问题在于，target=”blank”属性并未经过W3C认证。jQuery能够帮上大忙：以下片段能够检测当前链接是否指向外部，如果是则自动为其添加target=”blank”属性。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> root = location.protocol + <span class="string">'//'</span> + location.host; </div><div class="line">$(<span class="string">'a'</span>).not(<span class="string">':contains(root)'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </div><div class="line">    <span class="keyword">this</span>.target = <span class="string">"_blank"</span>; </div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<h2 id="悬停时淡入-淡出"><a href="#悬停时淡入-淡出" class="headerlink" title="悬停时淡入/淡出"></a>悬停时淡入/淡出</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </div><div class="line">    $(<span class="string">".thumbs img"</span>).fadeTo(<span class="string">"slow"</span>, <span class="number">0.6</span>); <span class="comment">// This sets the opacity of the thumbs to fade down to 60% when the page loads </span></div><div class="line">    $(<span class="string">".thumbs img"</span>).hover(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </div><div class="line">        $(<span class="keyword">this</span>).fadeTo(<span class="string">"slow"</span>, <span class="number">1.0</span>); <span class="comment">// This should set the opacity to 100% on hover </span></div><div class="line">    &#125;,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </div><div class="line">        $(<span class="keyword">this</span>).fadeTo(<span class="string">"slow"</span>, <span class="number">0.6</span>); <span class="comment">// This should set the opacity back to 60% on mouseout </span></div><div class="line">    &#125;); </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h2 id="禁用文本-密码输入中的空格"><a href="#禁用文本-密码输入中的空格" class="headerlink" title="禁用文本/密码输入中的空格"></a>禁用文本/密码输入中的空格</h2><p>无论是电子邮件、用户名还是密码，很多常见字段都不需要使用空格。以下代码能够轻松禁用选定输入内容中的全部空格。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'input.nospace'</span>).keydown(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123; </div><div class="line"><span class="keyword">if</span> (e.keyCode == <span class="number">32</span>) &#123; </div><div class="line"><span class="keyword">return</span> <span class="literal">false</span>; </div><div class="line">&#125; </div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 
           
         
@@ -1654,8 +1660,8 @@ localStorage.getItem(&#39;test&#39;);</code><br>localStorage可以存储k-v形�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">21</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -1668,7 +1674,7 @@ localStorage.getItem(&#39;test&#39;);</code><br>localStorage可以存储k-v形�
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               
             </div>
           
@@ -1718,7 +1724,7 @@ localStorage.getItem(&#39;test&#39;);</code><br>localStorage可以存储k-v形�
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
