@@ -100,6 +100,7 @@
 <meta property="og:url" content="http://messixing.win/2017/08/10/javascript-module-pattern/index.html">
 <meta property="og:site_name" content="messixing">
 <meta property="og:description" content="一、原始写法模块就是实现特定功能的一组方法。只要把不同的函数（以及记录状态的变量）简单地放在一起，就算是一个模块。 123456function m1()&amp;#123;	//...&amp;#125;function m2()&amp;#123;	//...&amp;#125; 写法：只要把不同的函数（以及记录状态的变量）简单地放在一起，就算是一个模块。 缺点：污染了全局变量，无法保证不与其他模块发生变量名冲突，而且模块成">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-08-10T08:55:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript模块化编程写法">
@@ -375,7 +376,7 @@
 <p>场景：在浏览器环境中，模块的各个部分通常是从网上获取的，有时无法知道哪个部分<br>会先加载。如果采用放大模式，第一个执行的部分有可能加载一个不存在对象，<br>这时就可采用“宽放大模式”。<br>比较：与“放大模式”相比，“宽放大模式”就是“立即执行函数”的参数可以是空对象。</p>
 <h2 id="六、输入全局变量"><a href="#六、输入全局变量" class="headerlink" title="六、输入全局变量"></a>六、输入全局变量</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> module1=(<span class="function"><span class="keyword">function</span>(<span class="params">$,YAHOO</span>)</span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">//...</span></div><div class="line"></div><div class="line">&#125;)(jQuery,YAHOO);</div></pre></td></tr></table></figure>
 <p>场景：独立性是模块的重要特点，模块内部最好不与程序的其他部分直接交互。<br>为了在模块内部调用全局变量，必须显式地将其他变量输入模块。</p>
-<h2 id="七、AMD规范"><a href="#七、AMD规范" class="headerlink" title="七、AMD规范"></a>七、AMD规范</h2><p><a href="https://github.com/amdjs/amdjs-api/wiki/AMD" target="_blank" rel="external">AMD</a>是”Asynchronous Module Definition”的缩写，意思就是”异步模块定义”。它采用异步方式加载模块，模块的加载不影响它后面语句的运行。所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行。AMD也采用require()语句加载模块，但是不同于CommonJS，它要求两个参数：</p>
+<h2 id="七、AMD规范"><a href="#七、AMD规范" class="headerlink" title="七、AMD规范"></a>七、AMD规范</h2><p><a href="https://github.com/amdjs/amdjs-api/wiki/AMD" target="_blank" rel="noopener">AMD</a>是”Asynchronous Module Definition”的缩写，意思就是”异步模块定义”。它采用异步方式加载模块，模块的加载不影响它后面语句的运行。所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行。AMD也采用require()语句加载模块，但是不同于CommonJS，它要求两个参数：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>([<span class="built_in">module</span>],callback);</div></pre></td></tr></table></figure>
 <p>第一个参数[module]，是一个数组，里面的成员就是要加载的模块；第二个参数callback，则是加载成功之后的回调函数。</p>
 
@@ -587,7 +588,7 @@
         <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
